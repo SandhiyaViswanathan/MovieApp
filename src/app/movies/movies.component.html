@@ -1,4 +1,5 @@
 <body>
+<!--for search box-->
 <div class="container" style="min-height:100vh;">
     <div class="jumbotron">
         <h1>Browse For Movies</h1>
@@ -11,41 +12,45 @@
       
     </div>
 
-<div id="movie_div">
+<!-- search Results-->
+   
+    <div id="movie_div">
            
 
 
-<div *ngIf="searchResults"
-            infinite-scroll
-            debounce
-            [infiniteScrollDistance]="scrolldistance"
-            [infiniteScrollThrottle]="throttle"
-            (scrolled)="onScroll(searchString)">
- 
-    <div *ngFor="let movie of searchResults">
-         
-        <div class="row">
-            <div class="col-md-12">
-              <div class="col-md-4" id="border">
-                <img *ngIf="movie.poster_path"  class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-              </div>
-              <div>
-                <div><h3><strong>{{movie.title}}</strong></h3></div>
-                <div><h3><strong>Rating: </strong></h3><p>{{movie.vote_average}}</p></div>
-                <div><h3><strong>Overview:</strong></h3><p> {{movie.overview}}</p></div>
-               <div> <h3><strong>ReleaseDate:</strong></h3><p>{{movie.release_date}}</p></div>
-               <div> <h3><strong>Genre:</strong></h3><p> {{genreMethod(movie.genre_ids)}}</p></div>
-                <a routerLink="/favourite" routerLinkActive="active"> Add to favourites</a>
-                <br>
-              </div>
-            </div>
-    </div>
-    <br>
-  
+        <div *ngIf="searchResults"
+                    infinite-scroll
+                    debounce
+                    [infiniteScrollDistance]="scrolldistance"
+                    [infiniteScrollThrottle]="throttle"
+                    (scrolled)="onScroll(searchString)">
         
+            <div *ngFor="let movie of searchResults">
+                
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-md-4" id="border">
+                        <img *ngIf="movie.poster_path"  class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+                      </div>
+                      <div>
+                        <button class="glyphicon glyphicon-star pull-right icon-button custom" (click)="this.favouritecomponent.postfav(movie.id,movie.title,movie.poster_path,movie.vote_average,movie.overview,movie.release_date,movie.genre_ids)"></button>
+                        <div><h3><strong>{{movie.title}}</strong></h3></div>
+                        <div><h3><strong>Rating: </strong></h3><p>{{movie.vote_average}}</p></div>
+                        <div><h3><strong>Overview:</strong></h3><p> {{movie.overview}}</p></div>
+                        <div> <h3><strong>ReleaseDate:</strong></h3><p>{{movie.release_date}}</p></div>
+                        <div> <h3><strong>Genre:</strong></h3><p> {{genreMethod(movie.genre_ids)}}</p></div>
+                        
+                        <br>
+                      </div>
+                    </div>
+                </div>
+                 <br>
+  
+           </div>
         </div>
-      </div>
-</div>
+    </div>
+
+<!-- end of search results-->
 </div>
 </body>     
 

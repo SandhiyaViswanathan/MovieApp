@@ -6,6 +6,7 @@ import { AppRouting } from './router/app-routing.module';
 import { AppComponent } from './app.component';
 import { MovieServiceService } from './services/movie-service.service';
 import { GenreService } from './services/genre.service';
+import { FavouriteService } from './services/favourite.service';
 import { MoviesComponent } from './movies/movies.component';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
@@ -15,7 +16,7 @@ import { FavouriteComponent } from './favourite/favourite.component';
   declarations: [
     AppComponent,
     MoviesComponent,
-    FavouriteComponent,
+    FavouriteComponent
     
   ],
   imports: [
@@ -26,7 +27,7 @@ import { FavouriteComponent } from './favourite/favourite.component';
      AppRouting,
      InfiniteScrollModule
   ],
-  providers: [MovieServiceService,GenreService], 
+  providers: [MovieServiceService,GenreService,FavouriteService,FavouriteComponent], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

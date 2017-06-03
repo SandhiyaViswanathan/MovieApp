@@ -13,9 +13,7 @@ export class GenreService{
  
 
 
-constructor(private http: Http) {
-    
-  }
+constructor(private http: Http) {}
 
   
   getGenre() {

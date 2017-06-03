@@ -1,6 +1,8 @@
 
 import { Component} from '@angular/core';
-import{MoviesComponent } from './movies/movies.component';
+
+import { FavouriteService } from './services/favourite.service';
+import { FavouriteComponent } from './favourite/favourite.component';
 
  
 @Component({
@@ -10,4 +12,13 @@ import{MoviesComponent } from './movies/movies.component';
 })
 export class AppComponent {
   title = 'app works!';
+
+
+
+
+constructor(private favouritecomponent : FavouriteComponent) { }
+
+  
+
+
 }

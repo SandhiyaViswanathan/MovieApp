@@ -40,3 +40,24 @@ body
 {
     color: #149799  ; 
 }
+.icon-button
+{
+    appearance:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline:none;
+    border:0;
+    background:transparent;
+    margin-right:10px;
+    color:white;
+}
+
+.custom{
+  color:orange;
+  opacity:0.7;
+  font-size: 30px;
+}
+
+.custom:active{
+  color:red
+}
