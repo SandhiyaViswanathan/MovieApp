@@ -16,14 +16,32 @@ router.route('/')
     });
   })
   .post((req, res) => {
-      
-    db.push(req.body);
     
-    fs.writeFile('db.json', JSON.stringify(db), (err, data) => {
-      if (err) throw err;
-      res.send('Favourite added!');
+    
+
+    let c=0;
+    db.forEach((bear , index) =>
+    {
+      if(bear.id==req.body.id)
+      {
+          c=1;
+          res.send('already added!');
+      }
     });
-  });
+
+    if(c==0)
+    {
+      
+         db.push(req.body);
+    
+   
+        fs.writeFile('db.json', JSON.stringify(db), (err, data) => {
+          if (err) throw err;
+          res.send('Favourite added!');
+        });
+    }
+        
+});
 
 router.route('/:id')
 
