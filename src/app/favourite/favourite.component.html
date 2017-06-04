@@ -1,6 +1,6 @@
 
 <body>
-<!-- search Results-->
+<!-- Favourite results-->
 
    <div class="container" style="min-height:100vh;">
     <div id="movie_div">
@@ -12,30 +12,31 @@
                 
                 <div class="row">
                     <div class="col-md-12">
-                      <div class="col-md-4" id="border">
-                        <img *ngIf="movie.poster_path"  class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-                      </div>
-                      <div>
-                        <button class="glyphicon glyphicon-star pull-right icon-button custom" (click)="deletefav(movie.id)"></button>
-                        <div><h3><strong>{{movie.title}}</strong></h3></div>
-                        <div><h3><strong>Rating: </strong></h3><p>{{movie.average}}</p></div>
-                        <div><h3><strong>Overview:</strong></h3><p> {{movie.overview}}</p></div>
-                        <div> <h3><strong>ReleaseDate:</strong></h3><p>{{movie.releasedate}}</p></div>
-                        <div> <h3><strong>Genre:</strong></h3><p>{{genreMethod(movie.genreid)}}</p></div>
-                        
-                     
-                      </div>
+                          <div class="col-md-4" id="border">
+                            <img *ngIf="movie.poster_path"  class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+                          </div>
+                          <div>
+                            <button class="glyphicon glyphicon-star pull-right icon-button custom" (click)="deletefav(movie.id)"></button>
+                            <div><h3><strong>{{movie.title}}</strong></h3></div>
+                            <div><h3><strong>Rating: </strong></h3><p>{{movie.average}}</p><input type="text" name="rating" [(ngModel)]="movie.average"></div>
+                            <div><h3><strong>Overview:</strong></h3><p> {{movie.overview}}</p></div>
+                            <div> <h3><strong>ReleaseDate:</strong></h3><p>{{movie.releasedate}}</p></div>
+                            <div> <h3><strong>Genre:</strong></h3><p>{{genreMethod(movie.genreid)}}</p></div>
+                            <button (click)="updateRating(movie.id,movie.title,movie.poster_path,movie.average,movie.overview,movie.releasedate,movie.genreid)">Save</button>
+                            
+                          
+                          </div>
                     </div>
                 </div>
                  <br>
   
           
         
+          </div>
+      </div>
     </div>
-    </div>
-   </div>
 
-</div>
+  </div>
 </body>     
 
 
