@@ -16,13 +16,16 @@
                             <img *ngIf="movie.poster_path"  class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
                           </div>
                           <div>
-                            <button class="glyphicon glyphicon-star pull-right icon-button custom" (click)="deletefav(movie.id)"></button>
+                            <button class="glyphicon glyphicon-trash pull-right icon-button custom" (click)="deletefav(movie.id)"></button>
                             <div><h3><strong>{{movie.title}}</strong></h3></div>
-                            <div><h3><strong>Rating: </strong></h3><p>{{movie.average}}</p><input type="text" name="rating" [(ngModel)]="movie.average"></div>
+                            <div><h3><strong>Rating: </strong></h3><p>{{movie.average}}</p><input type="text" name="rating" [(ngModel)]="movie.average">
+                            <button (click)="updateRating(movie.id,movie.title,movie.poster_path,movie.average,movie.overview,movie.releasedate,movie.genreid)">Save
+
+                            </button>
+                            </div>
                             <div><h3><strong>Overview:</strong></h3><p> {{movie.overview}}</p></div>
                             <div> <h3><strong>ReleaseDate:</strong></h3><p>{{movie.releasedate}}</p></div>
                             <div> <h3><strong>Genre:</strong></h3><p>{{genreMethod(movie.genreid)}}</p></div>
-                            <button (click)="updateRating(movie.id,movie.title,movie.poster_path,movie.average,movie.overview,movie.releasedate,movie.genreid)">Save</button>
                             
                           
                           </div>
@@ -38,5 +41,6 @@
 
   </div>
 </body>     
+
 
 
